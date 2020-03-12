@@ -27,28 +27,25 @@ class ActionButtons extends StatelessWidget {
       return [
         FloatingActionButton(
           child: Icon(Icons.pause),
-          onPressed: () => timerBloc.add(Pause(remainingTicks: remainingTicks)),
+          onPressed: () => timerBloc.add(Pause()),
         ),
       ];
     } else if (currentState is Paused) {
       return [
         FloatingActionButton(
           child: Icon(Icons.play_arrow),
-          onPressed: () => timerBloc
-              .add(Resume(remainingTicks: currentState.remainingTicks)),
+          onPressed: () => timerBloc.add(Resume()),
         ),
         FloatingActionButton(
           child: Icon(Icons.replay),
-          onPressed: () =>
-              timerBloc.add(Reset(remainingTicks: currentState.remainingTicks)),
+          onPressed: () => timerBloc.add(Reset()),
         ),
       ];
     } else if (currentState is Finished) {
       return [
         FloatingActionButton(
           child: Icon(Icons.play_arrow),
-          onPressed: () =>
-              timerBloc.add(Reset(remainingTicks: currentState.remainingTicks)),
+          onPressed: () => timerBloc.add(Reset()),
         ),
       ];
     }

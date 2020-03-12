@@ -37,12 +37,12 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     } else if (event is Pause) {
       if (state is Running) {
         _tickerSubscription?.pause();
-        yield Paused(event.remainingTicks);
+        yield Paused(state.remainingTicks);
       }
     } else if (event is Resume) {
       if (state is Paused) {
         _tickerSubscription?.resume();
-        yield Running(event.remainingTicks);
+        yield Running(state.remainingTicks);
       }
     } else if (event is Reset) {
       _tickerSubscription?.cancel();

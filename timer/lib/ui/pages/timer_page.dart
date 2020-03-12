@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timer/bloc/bloc.dart';
+import 'package:timer/ui/components/action_buttons.dart';
 import 'package:timer/ui/components/wave_background.dart';
 import 'package:timer/ui/utils/ui_constants.dart';
 
@@ -36,7 +37,12 @@ class TimerPage extends StatelessWidget {
                     },
                   ),
                 ),
-              )
+              ),
+              BlocBuilder<TimerBloc, TimerState>(
+                condition: (previousState, currentState) =>
+                    currentState.runtimeType != previousState.runtimeType,
+                builder: (context, state) => ActionButtons(),
+              ),
             ],
           ),
         ],

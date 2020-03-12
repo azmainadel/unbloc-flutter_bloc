@@ -29,29 +29,8 @@ class Tick extends TimerEvent {
   String toString() => "Tick $remainingTicks";
 }
 
-class Pause extends TimerEvent {
-  final int remainingTicks;
+class Pause extends TimerEvent {}
 
-  const Pause({@required this.remainingTicks});
+class Resume extends TimerEvent {}
 
-  @override
-  String toString() => "Paused at $remainingTicks ticks";
-}
-
-class Resume extends TimerEvent {
-  final int remainingTicks;
-
-  const Resume({@required this.remainingTicks});
-
-  @override
-  String toString() => "Resumed from $remainingTicks ticks";
-}
-
-class Reset extends TimerEvent {
-  final int remainingTicks;
-
-  const Reset({@required this.remainingTicks});
-
-  @override
-  String toString() => "Reset at $remainingTicks ticks";
-}
+class Reset extends TimerEvent {}
