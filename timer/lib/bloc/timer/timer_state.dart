@@ -1,39 +1,39 @@
 import 'package:equatable/equatable.dart';
 
 abstract class TimerState extends Equatable {
-  final int remainingTime;
+  final int remainingTicks;
 
-  const TimerState({this.remainingTime});
+  const TimerState({this.remainingTicks});
 
   @override
-  List<Object> get props => [remainingTime];
+  List<Object> get props => [remainingTicks];
 }
 
 //Ready to start counting
 class Ready extends TimerState {
-  const Ready(int duration) : super(remainingTime: duration);
+  const Ready(int duration) : super(remainingTicks: duration);
 
   @override
-  String toString() => 'Ready { duration: $remainingTime }';
+  String toString() => 'Ready { duration: $remainingTicks }';
 }
 
 //Paused on a count
 class Paused extends TimerState {
-  const Paused(int duration) : super(remainingTime: duration);
+  const Paused(int duration) : super(remainingTicks: duration);
 
   @override
-  String toString() => 'Paused { duration: $remainingTime }';
+  String toString() => 'Paused { duration: $remainingTicks }';
 }
 
 //Counting going on
 class Running extends TimerState {
-  const Running(int duration) : super(remainingTime: duration);
+  const Running(int duration) : super(remainingTicks: duration);
 
   @override
-  String toString() => 'Running { duration: $remainingTime }';
+  String toString() => 'Running { duration: $remainingTicks }';
 }
 
 //Counting finished for the given value
 class Finished extends TimerState {
-  const Finished() : super(remainingTime: 0);
+  const Finished() : super(remainingTicks: 0);
 }
