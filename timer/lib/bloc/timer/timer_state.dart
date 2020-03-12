@@ -11,7 +11,7 @@ abstract class TimerState extends Equatable {
 
 //Ready to start counting
 class Ready extends TimerState {
-  const Ready(int duration) : super(remainingTicks: duration);
+  const Ready(int remainingTicks) : super(remainingTicks: remainingTicks);
 
   @override
   String toString() => 'Ready { duration: $remainingTicks }';
@@ -19,7 +19,7 @@ class Ready extends TimerState {
 
 //Paused on a count
 class Paused extends TimerState {
-  const Paused(int duration) : super(remainingTicks: duration);
+  const Paused(int remainingTicks) : super(remainingTicks: remainingTicks);
 
   @override
   String toString() => 'Paused { duration: $remainingTicks }';
@@ -27,7 +27,7 @@ class Paused extends TimerState {
 
 //Counting going on
 class Running extends TimerState {
-  const Running(int duration) : super(remainingTicks: duration);
+  const Running(int remainingTicks) : super(remainingTicks: remainingTicks);
 
   @override
   String toString() => 'Running { duration: $remainingTicks }';
