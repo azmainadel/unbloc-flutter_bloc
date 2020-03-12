@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timer/bloc/bloc.dart';
 import 'package:timer/data/ticker.dart';
-import 'package:timer/pages/timer_page.dart';
+import 'package:timer/ui/pages/timer_page.dart';
 
 void main() => runApp(TimerApp());
 
