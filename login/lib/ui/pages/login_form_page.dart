@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/bloc/bloc.dart';
+import 'package:login/ui/components/loading_indicator.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -54,9 +55,7 @@ class _LoginFormState extends State<LoginForm> {
                   child: Text('Login'),
                 ),
                 Container(
-                  child: state is LoginLoadingState
-                      ? CircularProgressIndicator()
-                      : null,
+                  child: state is LoginLoadingState ? LoadingIndicator() : null,
                 ),
               ],
             ),
