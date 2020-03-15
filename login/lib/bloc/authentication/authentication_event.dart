@@ -1,4 +1,5 @@
-import 'package:meta/meta.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-abstract class AuthenticationEvent {}
+abstract class AuthenticationEvent extends Equatable {
+  const AuthenticationEvent();
+}

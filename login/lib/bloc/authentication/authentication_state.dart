@@ -1,6 +1,16 @@
-import 'package:meta/meta.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-abstract class AuthenticationState {}
+abstract class AuthenticationState extends Equatable {
+  const AuthenticationState();
 
-class InitialAuthenticationState extends AuthenticationState {}
+  @override
+  List<Object> get props => [];
+}
+
+class Uninitialized extends AuthenticationState {}
+
+class Initializing extends AuthenticationState {}
+
+class Authenticated extends AuthenticationState {}
+
+class Unauthenticated extends AuthenticationState {}
