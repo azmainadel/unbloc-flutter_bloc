@@ -7,12 +7,16 @@ import '../bloc.dart';
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   @override
-  AuthenticationState get initialState => InitialAuthenticationState();
+  AuthenticationState get initialState => Uninitialized();
 
   @override
   Stream<AuthenticationState> mapEventToState(
     AuthenticationEvent event,
   ) async* {
-    // TODO: Add Logic
+    if (event is AppStarted) {}
+
+    if (event is LoggedIn) {}
+
+    if (event is LoggedOut) {}
   }
 }
