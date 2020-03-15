@@ -14,7 +14,7 @@ class AuthenticationBloc
       : assert(userRepository != null);
 
   @override
-  AuthenticationState get initialState => Uninitialized();
+  AuthenticationState get initialState => AuthUninitializedState();
 
   @override
   Stream<AuthenticationState> mapEventToState(
@@ -23,24 +23,24 @@ class AuthenticationBloc
       final bool hasToken = await userRepository.hasToken();
 
       if (hasToken) {
-        yield Authenticated();
+        yield AuthenticatedState();
       } else {
-        yield Unauthenticated();
+        yield UnauthenticatedState();
       }
     }
 
     if (event is LoggedIn) {
-      yield Initializing();
+      yield AuthInitializingState();
 
       await userRepository.persistToken(event.token);
-      yield Authenticated();
+      yield AuthenticatedState();
     }
 
     if (event is LoggedOut) {
-      yield Initializing();
+      yield AuthInitializingState();
 
       await userRepository.deleteToken();
-      yield Unauthenticated();
+      yield UnauthenticatedState();
     }
   }
 }
